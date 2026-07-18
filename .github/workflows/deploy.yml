@@ -6,14 +6,14 @@ on:
       - main
 
 jobs:
-  build:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar proyecto
         uses: actions/checkout@v4
 
-      - name: Instalar Node
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -21,11 +21,11 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Revisar sintaxis
-        run: node --check server.js
+      - name: Build
+        run: echo "Build completado correctamente"
 
-      - name: Proyecto listo
-        run: echo "Build completado"
+      - name: Test
+        run: node --check server.js
 
       - name: Deploy
         run: echo "Despliegue realizado correctamente"
