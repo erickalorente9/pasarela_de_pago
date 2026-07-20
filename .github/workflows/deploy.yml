@@ -1,45 +1,43 @@
-# Nombre del workflow que aparecerá en la pestaña Actions de GitHub
+# Nombre del workflow
 name: CI/CD PayPhone
 
-# Evento que activa el pipeline
-# En este caso, se ejecuta cada vez que se hace un push a la rama main
+# Se ejecuta cuando hay un push a la rama main
 on:
   push:
     branches:
       - main
 
-# Definición de los trabajos (jobs) del pipeline
 jobs:
-
-  # Nombre del trabajo principal
   build-test-deploy:
-    runs-on: ubuntu-latest  # Sistema operativo donde se ejecutará el pipeline
+    runs-on: ubuntu-latest
 
-    # Lista de pasos que ejecutará GitHub Actions
-    steps: 
-      - name: Descargar proyecto      # Descarga el código del repositorio en la máquina virtual
+    steps:
+      # Descarga el código del repositorio
+      - name: Descargar proyecto
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js       # Instala y configura Node.js versión 20
+      # Configura Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Instalar dependencias     # Instala todas las dependencias definidas en package.json
+      # Instala las dependencias
+      - name: Instalar dependencias
         run: npm install
 
-      # Etapa Build
-      # En este proyecto solo se muestra un mensaje porque no es necesario compilar la aplicación
-      - name: Build
-        run: echo "Build completado correctamente"
-
-      # Etapa Test
-      # Verifica que server.js no tenga errores de sintaxis
+      # Verifica la sintaxis del proyecto
       - name: Test
         run: node --check server.js
 
-      # Etapa Deploy
-      # Simula el despliegue mostrando un mensaje en la consola
-      # En un proyecto real aquí se publicaría la aplicación
+      # Construye la imagen Docker
+      - name: Build Docker
+        run: docker build -t payphone .
+
+      # Verifica que la imagen fue creada
+      - name: Verificar imagen Docker
+        run: docker images
+
+      # Simulación del despliegue
       - name: Deploy
-        run: echo "Despliegue realizado correctamente"
+        run: echo "Imagen Docker creada correctamente. Lista para desplegar."
