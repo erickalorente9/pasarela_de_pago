@@ -3,27 +3,30 @@
 ======================= */
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: #fdf6f9;
-    color: #000000;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: #f4f6fb;
+    color: #333;
 }
 
 /* =======================
    HEADER
 ======================= */
 .header {
-    background: linear-gradient(135deg, #884ca8, #4f65ef);
+    background: linear-gradient(135deg, #6a5af9, #c850c0);
     text-align: center;
-    padding: 30px;
+    padding: 40px;
+    color: white;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 36px;
+    font-size: 42px;
+    font-weight: bold;
 }
 
 .header p {
-    font-size: 18px;
+    font-size: 20px;
+    opacity: 0.9;
 }
 
 /* =======================
@@ -32,8 +35,8 @@ body {
 .catalogo {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 40px;
+    gap: 35px;
+    padding: 50px;
     flex-wrap: wrap;
 }
 
@@ -42,17 +45,17 @@ body {
 ======================= */
 .producto {
     position: relative;
-    background: white;
-    width: 260px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    padding: 20px;
+    background: #ffffff;
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    padding: 25px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .producto:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
 }
 
 /* =======================
@@ -62,29 +65,26 @@ body {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(255, 255, 255, 0.9);
+    background: #fff;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
-    z-index: 10;
 }
 
 .btn-favorito:hover {
-    transform: scale(1.1);
-    background: white;
+    transform: scale(1.15);
 }
 
 .btn-favorito.activo {
-    color: #e91e63;
-    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+    color: #ff4081;
 }
 
 /* =======================
@@ -92,24 +92,24 @@ body {
 ======================= */
 .producto img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* =======================
    TEXTO DEL PRODUCTO
 ======================= */
 .producto h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin: 10px 0;
+    color: #222;
 }
 
 .producto p {
-    font-size: 14px;
-    color: #666;
-    height: 60px; /* uniforma tarjetas */
-    overflow: hidden;
+    font-size: 15px;
+    color: #777;
+    height: 65px;
 }
 
 /* =======================
@@ -117,38 +117,40 @@ body {
 ======================= */
 .precio {
     display: block;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    margin: 10px 0;
-    color: #e91e63;
+    margin: 12px 0;
+    color: #ff4081;
 }
 
 /* =======================
    BOTÓN COMPRAR
 ======================= */
 .btn-comprar {
-    background: #e91e63;
+    background: linear-gradient(135deg, #ff4081, #ff79a8);
     border: none;
     color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 14px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     width: 100%;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn-comprar:hover {
-    background: #c2185b;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(255, 64, 129, 0.4);
 }
 
 /* =======================
    FOOTER
 ======================= */
 footer {
-    background: #ffe4ec;
+    background: #fdd7e4;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     font-size: 14px;
+    color: #444;
 }
