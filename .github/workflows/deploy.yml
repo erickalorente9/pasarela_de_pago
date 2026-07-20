@@ -1,31 +1,45 @@
+# Nombre del workflow que aparecerá en la pestaña Actions de GitHub
 name: CI/CD PayPhone
 
+# Evento que activa el pipeline
+# En este caso, se ejecuta cada vez que se hace un push a la rama main
 on:
   push:
     branches:
       - main
 
+# Definición de los trabajos (jobs) del pipeline
 jobs:
-  build-test-deploy:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Descargar proyecto
+  # Nombre del trabajo principal
+  build-test-deploy:
+    runs-on: ubuntu-latest  # Sistema operativo donde se ejecutará el pipeline
+
+    # Lista de pasos que ejecutará GitHub Actions
+    steps: 
+      - name: Descargar proyecto      # Descarga el código del repositorio en la máquina virtual
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Configurar Node.js       # Instala y configura Node.js versión 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Instalar dependencias
+      - name: Instalar dependencias     # Instala todas las dependencias definidas en package.json
         run: npm install
 
+      # Etapa Build
+      # En este proyecto solo se muestra un mensaje porque no es necesario compilar la aplicación
       - name: Build
         run: echo "Build completado correctamente"
 
+      # Etapa Test
+      # Verifica que server.js no tenga errores de sintaxis
       - name: Test
         run: node --check server.js
 
+      # Etapa Deploy
+      # Simula el despliegue mostrando un mensaje en la consola
+      # En un proyecto real aquí se publicaría la aplicación
       - name: Deploy
         run: echo "Despliegue realizado correctamente"
